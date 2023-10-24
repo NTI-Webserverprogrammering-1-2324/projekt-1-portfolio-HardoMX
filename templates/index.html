@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"> <!-- Hur kan jag fixa det här beroende på template? -->
 
         <link rel="icon" href="../images/sitewide/Hardo-pfp.png" type="image/png">
         <title>Site</title>
@@ -55,7 +55,10 @@
 
         <main>
             <!-- Content from templates (Home, AM, Code, Photo) -->
-            {% block content %}{% endblock %}
+            {% block content %}
+            
+            
+            {% endblock %}
         </main>
 
 
@@ -65,8 +68,7 @@
                 <a class="footer-github" href="https://github.hardo.dev" target="_blank">GitHub</a>
             </div>
         </footer>
+        
+        <script src="script.js"></script>
     </body>
-
-
-    <script src="script.js"></script>
 </html>
