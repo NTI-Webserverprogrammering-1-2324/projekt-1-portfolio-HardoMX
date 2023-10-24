@@ -1,45 +1,201 @@
+:root {
+    --Menu-Color: #040D12;
+    --Main-Color: #183D3D;
+    --Accent-1: #5C8374;
+    --Accent-2: #93B1A6;
+}
+
 body {
+    position: relative;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: var(--Menu-Color);
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
+
+header {
+    position: unset;
 }
 
-.App {
-    text-align: center;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
+.header {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+
+    height: 4.5em;
+
+    background-color: var(--Menu-Color);
+}
+
+.site {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    padding-left: 0.5em;
+
+    height: 4.5em;
+    width: 5em;
+}
+.logo {
+    display: flex;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+
+    height: inherit;
+}
+.logo img {
+    height: 3.5em;
+}
+.site-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    height: inherit;
+    padding-left: 0.1em;
+    
+    font-size: 4em;
+    font-weight: lighter;
+    color: var(--Accent-2);
 }
 
-.App-link {
-    color: #61dafb;
+.nav ol {
+    list-style-type: none;
+}
+.nav-item {
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    border-left: solid 2px var(--Accent-1);
+    border-right: solid 2px var(--Accent-1);
+}
+.nav-item a {
+    text-decoration: none;
+
+    font-size: 2em;
+    font-weight: lighter;
+    color: var(--Accent-1);
+
+    transition: color 0.5s;
+}
+.nav-item a:hover {
+    color: var(--Accent-2);
 }
 
-.heart {
-    color: #ff0000;
+.menu-button {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    width: 4em;
+    padding-right: 1vw;
+
+    cursor: pointer;
+}
+.menu-button:hover .menu-line-1, .menu-button:hover .menu-line-2,  .menu-button:hover .menu-line-3{
+    background-color: var(--Accent-2);
+}
+.menu-button:hover .menu-2-active {
+    background-color: transparent;
+}
+.menu-line-1 {
+    background-color: var(--Accent-1);
+
+    height: 0.3em;
+    width: 4em;
+
+    transition: transform ease-in-out 0.65s, background-color 0.65s;
+}
+.menu-1-active {
+    transform: translateY(1.5em) rotate(45deg);
+}
+.menu-line-2 {
+    background-color: var(--Accent-1);
+
+    height: 0.3em;
+    width: 4em;
+
+    transition: background-color ease-in-out 0.65s;
+}
+.menu-2-active {
+    background-color: transparent;
+}
+.menu-line-3 {
+    background-color: var(--Accent-1);
+
+    height: 0.3em;
+    width: 4em;
+
+    transition: transform ease-in-out 0.65s, background-color 0.65s;
+}
+.menu-3-active {
+    transform: translateY(-1.5em) rotate(-45deg);
 }
 
-.small {
-    font-size: 0.75rem;
+.menu {
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+
+    height: 95%;
+    width: fit-content;
+
+    background-color: var(--Menu-Color);
+    color: var(--Accent-2);
+
+    transition: all ease-in-out 0.75s;
+}
+.menu-active {
+    transform: translateX(0%);
+}
+.menu-text {
+    padding-right: 1em;
+    padding-left: 1em;
+
+    font-weight: 350;
+}
+
+
+
+/* Main */
+main {
+    background-color: var(--Main-Color);
+}
+
+
+footer {
+    background-color: var(--Menu-Color);
+
+    height: 4em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-contact {
+    color: var(--Accent-1);
+    text-decoration: none;
+
+    font-size: 2em;
+    padding-right: 3em;
+
+    transition: 0.5s;
+}
+.footer-contact:hover {
+    color: var(--Accent-2);
+}
+.footer-github {
+    color: var(--Accent-1);
+    text-decoration: none;
+
+    font-size: 2em;
+    padding-left: 3em;
+    
+    transition: 0.5s;
+}
+.footer-github:hover {
+    color: var(--Accent-2);
 }

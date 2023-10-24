@@ -1,19 +1,72 @@
-<head>
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<body>
-    <div class="App">
-        <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
-            </p>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+        <link rel="icon" href="../images/sitewide/Hardo-pfp.png" type="image/png">
+        <title>Site</title>
+    </head>
+
+
+    <body>
+        <header>
+            <div class="header">
+                <div class="site">
+                    <div class="logo"><img src="../images/sitewide/Hardo-pfp.png" alt="Site logo"></div>
+                    <div class="site-title">Site</div>
+                </div>
+
+                <div class="nav">
+                    <nav>
+                        <ul>
+                            <li class="nav-item"> <a href="index.html">Home</a> </li>
+                            <li class="nav-item"> <a href="../AM/index.html">About me</a> </li>
+                            <li class="nav-item"> <a href="../Code/index.html">Code</a> </li>
+                            <li class="nav-item"> <a href="../Photo/index.html">Photography</a> </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="menu-button" onclick="menu()">
+                    <div class="menu-line-1"></div>
+                    <div class="menu-line-2"></div>
+                    <div class="menu-line-3"></div>
+                </div>
+            </div>
+            <div class="menu">
+                <p class="menu-text">MENU</p>
+                <ul>
+                    <li class="menu-item"> <a href=""></a> </li>
+                    <li class="menu-item"> <a href=""></a> </li>
+                    <li class="menu-item"> <a href=""></a> </li>
+                    <li class="menu-item"> <a href=""></a> </li>
+                </ul>
+            </div>
         </header>
-    </div>
-</body>
 
+
+        <main>
+            <!-- Content from templates (Home, AM, Code, Photo) -->
+            {% block content %}{% endblock %}
+        </main>
+
+
+        <footer>
+            <div class="foot-container">
+                <a class="footer-contact" href="../AM/index.html#how">Contact</a>
+                <a class="footer-github" href="https://github.hardo.dev" target="_blank">GitHub</a>
+            </div>
+        </footer>
+    </body>
+
+
+    <script src="script.js"></script>
 </html>

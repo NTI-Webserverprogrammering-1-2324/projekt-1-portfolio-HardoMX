@@ -1,7 +1,9 @@
-from flask import Flask, render_template
+""" This program is used to host and render a simple portfolio website, 
+    and to experiment with a rudimentary CMS"""
 
-app = Flask(__name__)
+from factory import create_app
 
-@app.route("/")
-def hello_world():
-    return render_template("index.html", title="Hello")
+app = create_app()
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
