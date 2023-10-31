@@ -1,0 +1,208 @@
+:root {
+    --Menu-Color: #082032;
+    --Main-Color: #2C394B;
+    --Accent-1: #334756;
+    --Accent-2: #FF4C29;
+}
+
+
+main {
+    background-color: var(--Main-Color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+main h1 {
+    color: var(--Accent-2);
+    font-size: 8em;
+    margin-bottom: auto;
+}
+main p {
+    color: var(--Accent-1);
+    font-size: 4em;
+}
+
+.main {
+    margin-bottom: 10em;
+}
+.main h3 {
+    display: flex;
+    justify-content: center;
+    color: var(--Accent-2);
+    font-size: 4em;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 10em;
+}
+.link {
+    text-decoration: none;
+
+    height: 20em;
+    width: 50em;
+
+    background-color: var(--Menu-Color);
+    border-radius: 3em;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    transition: filter 0.2s;
+}
+.link:hover {
+    filter: drop-shadow(0 0 1.5em #000000);
+}
+
+.nvim-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 30em;
+}
+.nvim-title {
+    font-size: 5em;
+    color: var(--Accent-2);
+}
+.nvim-desc {
+    font-size: 2.5em;
+    color: var(--Accent-1);
+}
+.nvim-svg {
+    height: 10em;
+}
+.nvim-link:hover .nvim-svg-path {
+    stroke-dasharray: 525;
+    stroke-dashoffset: 525;
+    fill-opacity: 0;
+    transition: fill-opacity 0.5s;
+    animation: nvim-svg-draw 2.5s ease-in-out forwards, nvim-svg-fill 1s ease-out forwards 2.7s;
+}
+@keyframes nvim-svg-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes nvim-svg-fill {
+    0% {
+        fill-opacity: 0;
+    }
+
+    100% {
+        fill-opacity: 100;
+    }
+}
+
+.shell-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 30em;
+}
+.shell-title {
+    font-size: 5em;
+    color: var(--Accent-2);
+}
+.shell-desc {
+    font-size: 2.5em;
+    color: var(--Accent-1);
+}
+.shell-svg {
+    height: 10em;
+}
+.shell-link:hover .shell-svg-dash {
+    stroke-dasharray: 22;
+    animation: svg-dash 1.6s step-end infinite;
+}
+@keyframes svg-dash {
+    25% {
+        filter: opacity(0);
+    }
+
+    75% {
+        filter: opacity(100);
+    }
+}
+
+.eww-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 30em;
+}
+.eww-title {
+    font-size: 5em;
+    color: var(--Accent-2);
+}
+.eww-desc {
+    font-size: 2.5em;
+    color: var(--Accent-1);
+}
+.eww-svg {
+    height: 14em;
+}
+.eww-link:hover #logo .flicksw {
+    animation: flick 4s infinite;
+}
+.eww-link:hover .liquid:before{
+    animation: liqanim 6s linear infinite;	
+}
+@keyframes flick {
+    0% {
+        transform: translateX(0%);
+    }
+    20%{
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(10.5%);
+    }
+    70% {
+        transform: translateX(10.5%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+.dot{
+    height: 139px;
+    width: 139px;
+    background-color: #D84315;
+    border-radius:50%;
+    display:flex;
+    position:relative;
+    left:383px;
+    top: 384px;
+}
+.liquid{
+    display:flex;
+    position:relative;
+    overflow: hidden;
+    height: 300px;
+    width: 139px;
+    left:383px;
+    top: 10px;
+    background: #D84315;
+}
+.liquid:before{
+    content:'';
+    position: absolute;
+    top: -88%;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    border-radius: 40%;
+    background:#455A64;
+}
+@keyframes liqanim {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

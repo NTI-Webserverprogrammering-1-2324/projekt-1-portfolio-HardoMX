@@ -1,0 +1,237 @@
+:root {
+    --Menu-Color: #252B48;
+    --Main-Color: #445069;
+    --Accent-1: #5B9A8B;
+    --Accent-2: #F7E987;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: var(--Menu-Color);
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+
+    height: 4.5em;
+
+    background-color: var(--Menu-Color);
+}
+
+.site {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    padding-left: 0.5em;
+
+    height: 4.5em;
+    width: 5em;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: inherit;
+}
+.logo img {
+    height: 3.5em;
+}
+.site-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    height: inherit;
+    padding-left: 0.1em;
+    
+    font-size: 4em;
+    font-weight: lighter;
+    color: var(--Accent-2);
+}
+
+.nav ol {
+    list-style-type: none;
+}
+.nav-item {
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    border-left: solid 2px var(--Accent-1);
+    border-right: solid 2px var(--Accent-1);
+}
+.nav-item a {
+    text-decoration: none;
+
+    font-size: 2em;
+    font-weight: lighter;
+    color: var(--Accent-1);
+
+    transition: color 0.5s;
+}
+.nav-item a:hover {
+    color: var(--Accent-2);
+}
+
+.menu-button {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    width: 4em;
+    padding-right: 1vw;
+
+    cursor: pointer;
+}
+.menu-button:hover .menu-line-1, .menu-button:hover .menu-line-2,  .menu-button:hover .menu-line-3{
+    background-color: var(--Accent-2);
+}
+.menu-button:hover .menu-2-active {
+    background-color: transparent;
+}
+.menu-line-1 {
+    background-color: var(--Accent-1);
+
+    height: 0.3em;
+    width: 4em;
+
+    transition: transform ease-in-out 0.75s, background-color 0.5s;
+}
+.menu-1-active {
+    transform: translateY(1.5em) rotate(45deg);
+}
+.menu-line-2 {
+    background-color: var(--Accent-1);
+
+    height: 0.3em;
+    width: 4em;
+
+    transition: background-color ease-in-out 0.75s;
+}
+.menu-2-active {
+    background-color: transparent;
+}
+.menu-line-3 {
+    background-color: var(--Accent-1);
+
+    height: 0.3em;
+    width: 4em;
+
+    transition: transform ease-in-out 0.75s, background-color 0.5s;
+}
+.menu-3-active {
+    transform: translateY(-1.5em) rotate(-45deg);
+}
+
+.menu {
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+
+    height: 100vh;
+    width: auto;
+
+    background-color: var(--Menu-Color);
+    color: var(--Accent-2);
+
+    transition: all ease-in-out 0.75s;
+}
+.menu-active {
+    transform: translateX(0%);
+}
+.menu-text {
+    padding-right: 1em;
+    padding-left: 1em;
+
+    font-weight: 350;
+}
+
+
+
+main {
+    background-color: var(--Main-Color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+main h1 {
+    font-size: 8em;
+    color: var(--Accent-2);
+}
+.who h3 {
+    font-size: 4em;
+    color: var(--Accent-2);
+
+    margin-bottom: auto;
+}
+.who p {
+    font-size: 2em;
+    color: var(--Accent-1);
+}
+
+.what h3 {
+    font-size: 4em;
+    color: var(--Accent-2);
+
+    margin-bottom: auto;
+}
+.what p {
+    font-size: 2em;
+    color: var(--Accent-1);
+}
+
+.how h3 {
+    font-size: 4em;
+    color: var(--Accent-2);
+
+    margin-bottom: auto;
+}
+.how p {
+    font-size: 2em;
+    color: var(--Accent-1);
+}
+
+
+footer {
+    background-color: var(--Menu-Color);
+
+    height: 4em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-contact {
+    color: var(--Accent-1);
+    text-decoration: none;
+
+    font-size: 2em;
+    padding-right: 3em;
+
+    transition: 0.5s;
+}
+.footer-contact:hover {
+    color: var(--Accent-2);
+}
+.footer-github {
+    color: var(--Accent-1);
+    text-decoration: none;
+
+    font-size: 2em;
+    padding-left: 3em;
+    
+    transition: 0.5s;
+}
+.footer-github:hover {
+    color: var(--Accent-2);
+}

@@ -8,10 +8,18 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"> <!-- Hur kan jag fixa det här beroende på template? -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        
+        <!-- Change which css file is loaded depending on endpoint -->
+        {% if request.endpoint == 'home.home' %}
+            <link rel="stylesheet" href="../static/css/home.css">
+        {% elif request.endpoint == 'about.about' %}
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+        {% elif request.endpoint == 'code.code' %}
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/code.css') }}">
+        {% endif %}
 
-        <link rel="icon" href="../images/sitewide/Hardo-pfp.png" type="image/png">
+        <link rel="icon" href="{{ url_for('static', filename='images/sitewide/Octocat.png') }}" type="image/png">
         <title>Site</title>
     </head>
 
@@ -20,15 +28,15 @@
         <header>
             <div class="header">
                 <div class="site">
-                    <div class="logo"><img src="../images/sitewide/Hardo-pfp.png" alt="Site logo"></div>
+                    <div class="logo"><img src="{{ url_for('static', filename='images/sitewide/Octocat.png') }}" alt="Site logo"></div>
                     <div class="site-title">Site</div>
                 </div>
 
                 <div class="nav">
                     <nav>
                         <ul>
-                            <li class="nav-item"> <a href="index.html">Home</a> </li>
-                            <li class="nav-item"> <a href="../AM/index.html">About me</a> </li>
+                            <li class="nav-item"> <a href="{{ url_for('home.home') }}">Home</a> </li>
+                            <li class="nav-item"> <a href="{{ url_for('about.about') }}">About me</a> </li>
                             <li class="nav-item"> <a href="../Code/index.html">Code</a> </li>
                             <li class="nav-item"> <a href="../Photo/index.html">Photography</a> </li>
                         </ul>
@@ -57,18 +65,17 @@
             <!-- Content from templates (Home, AM, Code, Photo) -->
             {% block content %}
             
-            
             {% endblock %}
         </main>
 
 
         <footer>
             <div class="foot-container">
-                <a class="footer-contact" href="../AM/index.html#how">Contact</a>
+                <a class="footer-contact" href="{{ url_for('about.about') }}#how">Contact</a>
                 <a class="footer-github" href="https://github.hardo.dev" target="_blank">GitHub</a>
             </div>
         </footer>
         
-        <script src="script.js"></script>
+        <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     </body>
 </html>
