@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/cms.css') }}">
+
+        <link rel="icon" href="{{ url_for('static', filename='images/sitewide/Octocat.png') }}" type="image/png">
+        <title>CMS</title>
+    </head>
+
+
+    <body>
+        <header>
+            <div class="site">
+                <div class="logo"><img src="{{ url_for('static', filename='images/sitewide/Octocat.png') }}" alt="Site logo"></div>
+                <div class="site-title">CMS for Portfolio site</div>
+            </div>
+        </header>
+
+        <main>
+            <div class="sidebar">
+                <div>
+                    <h3>CMS</h3>
+                        <nav>
+                            <ul>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('cms.cms_about') }}">About me section</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    <a class="site-link" href="{{ url_for('home.home') }}">Website</a>
+                </div>
+            </div>
+
+            {% block cms_content %}
+            <div class="content">
+                <div class="text">
+                    <h1>Welcome</h1>
+                    <h3>This is the Content Management System (CMS) for the portfolio site. 
+                        Here you can manage the text in the About Me page and any future pages that will be dynamically configured.</h3>
+                    <hr>
+                    <h2>Choose a page to edit from the sidebar</h2>
+                </div>
+            </div>
+            {% endblock %}
+        </main>
+
+        <footer>
+            
+        </footer>
+    </body>
+
+
+    <script src="script.js"></script>
+</html>
