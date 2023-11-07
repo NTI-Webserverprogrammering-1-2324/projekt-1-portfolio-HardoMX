@@ -17,17 +17,17 @@ main {
 main h1 {
     color: var(--Accent-2);
     font-size: 8em;
-    margin-bottom: auto;
+    margin-top: 0.5em;
 }
 main p {
     color: var(--Accent-1);
     font-size: 4em;
 }
 
-.main {
+.content {
     margin-bottom: 10em;
 }
-.main h3 {
+.content h3 {
     display: flex;
     justify-content: center;
     color: var(--Accent-2);
