@@ -1,3 +1,4 @@
+// Give function to and animate the menu
 function menu() {
     document.querySelector('.menu-line-1').classList.toggle('menu-1-active');
     document.querySelector('.menu-line-2').classList.toggle('menu-2-active');
@@ -7,6 +8,7 @@ function menu() {
 }
 
 
+// Animate the Code link
 var codeLink = document.querySelector(".code-link");
 
 codeLink.addEventListener("mouseenter", popdown);
@@ -67,4 +69,14 @@ function popup() {
 
         var animationPlayer = codeLine.animate(codeLine.keyframes, codeLine.animProps);
     }
+}
+
+
+// Add modal function to CMS
+function modal() {
+    document.getElementById('add-modal').style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById('add-modal').style.display = "none";
 }

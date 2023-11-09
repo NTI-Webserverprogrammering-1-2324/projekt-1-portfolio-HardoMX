@@ -5,11 +5,23 @@
 <div class="content">
     <div class="who">
         <h3> Who Am I? </h3>
-        <p> Lorem Ipsum Dolores Set</p>
+        {% for entry in who_entries %}
+            {% if entry.isActive %}
+            <hr>
+            <p class="entry-title">{{ entry.title  }}:</p>
+            <p class="entry-text">{{ entry.text }}</p>
+            {% endif %}
+        {% endfor %}
     </div>
     <div class="what">
         <h3> What Do I Do? </h3>
-        <p> Lorem Ipsum Dolores Set</p>
+        {% for entry in what_entries %}
+            {% if entry.isActive %}
+            <hr>
+            <p class="entry-title">{{ entry.title  }}:</p>
+            <p class="entry-text">{{ entry.text }}</p>
+            {% endif %}
+        {% endfor %}
     </div>
     <div class="how" id="how">
         <h3> How Can You Contact Me? </h3>

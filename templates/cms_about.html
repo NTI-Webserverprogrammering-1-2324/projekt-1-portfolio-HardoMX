@@ -3,17 +3,98 @@
 <!-- About Me manager -->
 {% block cms_content %}
 <div class="content">
-    <h1>About Me</h1>
-    <h3>Manage entries for the about me page</h3>
+    <div class="text">
+        <h1>About Me</h1>
+        <h3>Manage entries for the about me page</h3>
 
-    <hr>
+        <hr>
+    </div>
 
     <!-- List Entries -->
-    <ul>
-        {% for entry in who_entries}
-        <li>
-            {{ entry.title }}
-        </li>
-    </ul>
+    <div class="lists">
+        <div class="who">
+            <h3>Who am I?</h3>
+            <ul>
+                {% for entry in who_entries %}
+                <li class="who-entry">
+                    {{ entry.title }}
+                    <span>
+                        <button class="edit" data-id="{{ entry.id }}">Edit</button>
+                        <button class="delete">Delete</button>
+                        {% if entry.isActive %}
+                        <span class="active">Active</span>
+                        {% else %}
+                        <button class="set-active">Set Active</button>
+                        {% endif %}
+                    </span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="vertical-line"></div>
+
+        <div class="what">
+            <h3>What do I do?</h3>
+            <ul>
+                {% for entry in what_entries %}
+                <li class="what-entry">
+                    {{ entry.title }}
+                    <span>
+                        <button class="edit" data-id="{{ entry.id }}">Edit</button>
+                        <button class="delete">Delete</button>
+                        {% if entry.isActive %}
+                        <span class="active">Active</span>
+                        {% else %}
+                        <button class="set-active">Set Active</button>
+                        {% endif %}
+                    </span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Add New Content -->
+    <button class="add-button" onclick="modal()">
+        Add New Content
+    </button>
+    <div class="add-entry" id="add-modal">
+        <div class="modal-content">
+            <h1>Add New Content</h1>
+            <span class="close" onclick="closeModal()">&times;</span> <!-- Change this to SVG for better look -->
+        </div>
+        <hr>
+        <div class="forms">
+            <form action="{{ url_for('cms.add_content') }}" method="post" id="contentForm">
+                <!-- Title Input -->
+                <div class="form-title">
+                    <label for="title" class="form-label">Title (like your name)</label>
+                    <input type="text" class="form-control" name="title" placeholder="Enter Title">
+                </div>
+
+                <!-- Text Input -->
+                <div class="form-text">
+                    <label class="form-label" for="text">Text</label>
+                    <textarea class="form-control" name="text" placeholder="Write something about yourself"></textarea>
+                </div>
+
+                <!-- Is Active -->
+                <div class="form-active">
+                    <label for="isActive">Set as Active</label>
+                    <input class="is-active" type="checkbox" name="isActive">
+                </div>
+
+                <!-- Choose list -->
+                <div>
+                    <label for="what-do">Add to "What do I do?" instead of "Who am I?"</label>
+                    <input class="what-do" type="checkbox" name="what-do">
+                </div>
+
+                <!-- Submit -->
+                <input type="submit" value="Add">
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

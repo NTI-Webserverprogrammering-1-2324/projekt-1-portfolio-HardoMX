@@ -113,3 +113,63 @@ main {
 .text hr {
     width: inherit;
 }
+
+.lists {
+    display: flex;
+}
+.vertical-line {
+    width: 0.2em;
+    min-height: 10em;
+    max-height: none;
+
+    margin-left: 1em;
+    margin-right: 1em;
+
+    background-color: var(--Accent-2);
+}
+
+
+.add-entry {
+    display: none;
+    position: fixed;
+    overflow: auto;
+
+    z-index: 1;
+    left: 50;
+    top: 50;
+    transform: translate(-50%, -50%);
+
+    width: fit-content;
+    height: fit-content;
+    padding: 1em 1em 1em 1em;
+
+    background-color: #0000005F;
+    color: var(--Accent-2);
+    border: solid 0.2em var(--Accent-2);
+    border-radius: 2em;
+}
+
+.modal-content {
+    display: flex;
+    gap: 1em;
+}
+/* .close will change to SVG to look better */
+.close {
+    font-size: 5em;
+    padding: 0em 0.4em 0em 0.4em;
+
+    background-color: #FF0000;
+    border-radius: 0.4em
+}
+.close:hover {
+    cursor: pointer;
+}
+
+.form-title {
+    display: flex;
+    flex-direction: column;
+}
+.form-text {
+    display: flex;
+    flex-direction: column;
+}
