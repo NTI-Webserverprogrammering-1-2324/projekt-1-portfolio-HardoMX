@@ -23,6 +23,8 @@ def cms():
     return render_template("cms.html")
 
 
+""" ================== CMS ================== """
+
 @cms_bp.route("/cms/about", methods=["GET"])
 def cms_about():
     """Render the CMS about page.
@@ -61,3 +63,7 @@ def add_content():
         who_entries.append(new_content)
 
     return redirect(url_for("cms.cms_about"))
+
+
+#@cms_bp.route("/cms/about/delete", methods=["DELETE"])
+#@cms_bp.route("/cms/about/edit", methods=["POST"])

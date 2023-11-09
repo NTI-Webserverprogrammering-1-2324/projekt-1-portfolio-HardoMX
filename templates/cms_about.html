@@ -12,7 +12,7 @@
 
     <!-- List Entries -->
     <div class="lists">
-        <div class="who">
+        <div class="who list">
             <h3>Who am I?</h3>
             <ul>
                 {% for entry in who_entries %}
@@ -34,7 +34,7 @@
 
         <div class="vertical-line"></div>
 
-        <div class="what">
+        <div class="what list">
             <h3>What do I do?</h3>
             <ul>
                 {% for entry in what_entries %}
@@ -62,7 +62,15 @@
     <div class="add-entry" id="add-modal">
         <div class="modal-content">
             <h1>Add New Content</h1>
-            <span class="close" onclick="closeModal()">&times;</span> <!-- Change this to SVG for better look -->
+            <div class="close" onclick="closeModal()">
+                    <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490" xml:space="preserve">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 "></polygon>
+                        </g>
+                    </svg>
+            </div>
         </div>
         <hr>
         <div class="forms">
