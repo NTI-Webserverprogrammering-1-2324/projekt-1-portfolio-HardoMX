@@ -24,8 +24,28 @@
         {% endfor %}
     </div>
     <div class="how" id="how">
-        <h3> How Can You Contact Me? </h3>
-        <p> Lorem Ipsum Dolores Set</p>
+        <h3> Contact Me </h3>
+        
+        <div class="contact">
+            <form action="{{ url_for('about.contact') }}" method="post">
+                <div class="form-name form">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name..">
+                </div>
+
+                <div class="form-mail form">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="Your email..">
+                </div>
+
+                <div class="form-message form">
+                    <label for="message">Subject</label>
+                    <textarea id="message" name="message" placeholder="Write your message.."></textarea>
+                </div>
+
+                <input type="submit" value="Send">
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,10 +1,9 @@
 """ This script renders a simple Content Management System """
 
 from flask import Blueprint, render_template, request, redirect, url_for
+from blueprints.data.lists import what_entries, who_entries, messages
 
-#Create list to store site changes
-who_entries = []
-what_entries = []
+
 
 cms_bp = Blueprint("cms", __name__)
 
@@ -23,7 +22,7 @@ def cms():
     return render_template("cms.html")
 
 
-""" ================== CMS ================== """
+# ================== CMS ==================
 
 @cms_bp.route("/cms/about", methods=["GET"])
 def cms_about():
@@ -67,3 +66,16 @@ def add_content():
 
 #@cms_bp.route("/cms/about/delete", methods=["DELETE"])
 #@cms_bp.route("/cms/about/edit", methods=["POST"])
+
+
+# ================== Contact ==================
+
+@cms_bp.route("/cms/contact", methods=["GET"])
+def cms_contact():
+    """Render the CMS contact page.
+
+    Returns:
+        The rendered CMS contact page.
+    """
+
+    return render_template("cms_contact.html", messages=messages, length=len(messages))

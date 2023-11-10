@@ -32,6 +32,9 @@
                                 <li class="nav-item">
                                     <a href="{{ url_for('cms.cms_about') }}">About me section</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('cms.cms_contact') }}">Messages</a>
+                                </li>
                             </ul>
                         </nav>
                     <a class="site-link" href="{{ url_for('home.home') }}">Website</a>
@@ -56,6 +59,12 @@
         </footer>
     </body>
 
-
+    <footer>
+        <div class="foot-container">
+            <a class="footer-contact" href="{{ url_for('about.about') }}#how">Contact</a>
+            <a class="footer-github" href="https://github.hardo.dev" target="_blank">GitHub</a>
+        </div>
+    </footer>
+    
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </html>

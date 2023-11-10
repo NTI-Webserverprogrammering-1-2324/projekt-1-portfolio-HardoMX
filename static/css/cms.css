@@ -9,7 +9,6 @@
 body {
     position: relative;
     margin: 0;
-    overflow-x: hidden;
     font-family: 'Noto Sans', sans-serif;
     background-color: var(--Menu-Color);
 }
@@ -17,7 +16,7 @@ body {
 header {
     position: unset;
 
-    height: 4.5em;
+    height: 9vh;
 
     background-color: var(--Menu-Color);
 }
@@ -57,7 +56,7 @@ header {
 main {
     display: flex;
     
-    height: 90vh;
+    min-height: 89vh;
     
     background-color: var(--Main-Color);
 }
@@ -114,6 +113,7 @@ main {
     width: inherit;
 }
 
+/* About Manager */
 .lists {
     display: flex;
 }
@@ -206,4 +206,54 @@ main {
 .form-text {
     display: flex;
     flex-direction: column;
+}
+
+
+/* Messages */
+.messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 55em;
+}
+.message-entry {
+    width: 40em;
+}
+
+
+
+footer {
+    background-color: var(--Menu-Color);
+
+    height: 2vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-contact {
+    color: var(--Accent-1);
+    text-decoration: none;
+
+    font-size: 2em;
+    padding-right: 3em;
+
+    transition: 0.5s;
+}
+.footer-contact:hover {
+    color: var(--Accent-2);
+}
+.footer-github {
+    color: var(--Accent-1);
+    text-decoration: none;
+
+    font-size: 2em;
+    padding-left: 3em;
+    
+    transition: 0.5s;
+}
+.footer-github:hover {
+    color: var(--Accent-2);
 }
