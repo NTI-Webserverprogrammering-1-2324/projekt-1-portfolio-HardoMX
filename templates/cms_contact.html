@@ -14,15 +14,14 @@
     <ul class="messages">
         {% for message in messages %}
         <li class="message-entry">
-            <h3>{{ message.name }}</h3>
-            <p>{{ message.email }}</p>
-            <p>{{ message.message }}</p>
-            <button>Delete</button>
-            {% if message.id == length %}
-            <br>
-            {% else %}
-            <hr>
-            {% endif %}
+            <p class="id">ID: {{ message.id }}</p>
+            <h3 class="name">{{ message.name }}</h3>
+            <p class="mail">{{ message.email }}</p>
+            <p class="message">{{ message.message }}</p>
+            <form action="{{ url_for('cms.delete_message') }}" method="post">
+                <input type="hidden" value="{{ message.id }}" name="id">
+                <input class="delete" type="submit" value="Delete">
+            </form>
         </li>
         {% endfor %}
     </ul>

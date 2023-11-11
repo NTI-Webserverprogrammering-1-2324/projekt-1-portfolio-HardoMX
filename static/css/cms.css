@@ -1,8 +1,8 @@
 :root {
-    --Menu-Color: #040D12;
-    --Main-Color: #183D3D;
-    --Accent-1: #5C8374;
-    --Accent-2: #93B1A6;
+    --Menu-Color: #071952;
+    --Main-Color: #0B666A;
+    --Accent-1: #35A29F;
+    --Accent-2: #97FEED;
 }
 
 
@@ -133,11 +133,51 @@ main {
     flex-direction: column;
     align-items: center;
 
+    font-size: 1.4em;
+
     width: 20em;
 
     h3 {
         color: var(--Accent-2);
     }
+}
+.list ul {
+    list-style-type: none;
+}
+
+.edit {
+    width: 5em;
+    height: 3em;
+
+    background-color: var(--Accent-2);
+    border-radius: 1em;
+}
+.edit:hover {
+    cursor: pointer;
+    background-color: var(--Accent-1);
+}
+
+.activate {
+    width: 5em;
+    height: 3em;
+
+    background-color: var(--Accent-2);
+    border-radius: 1em;
+}
+.activate:hover {
+    cursor: pointer;
+    background-color: var(--Accent-1);
+}
+.deactivate {
+    width: 7em;
+    height: 3em;
+
+    background-color: var(--Accent-2);
+    border-radius: 1em;
+}
+.deactivate:hover {
+    cursor: pointer;
+    background-color: var(--Accent-1);
 }
 
 
@@ -215,10 +255,48 @@ main {
     flex-direction: column;
     align-items: center;
 
+    list-style-type: none;
+
     width: 55em;
 }
 .message-entry {
     width: 40em;
+
+    line-height: 0.5em;
+
+    background-color: var(--Accent-1);
+    color: var(--Accent-2);
+
+    border: 0.2em solid var(--Accent-2);
+    border-radius: 1em;
+
+    padding: 1em 1em 1em 1em;
+    margin-bottom: 2em;
+}
+.name {
+    font-size: 3em;
+    font-weight: bold;
+}
+.mail {
+    font-size: 2em;
+}
+.message {
+    font-size: 1.5em;
+    font-weight: lighter;
+
+    margin-top: 2em;
+    margin-bottom: 1.3em;
+}
+.delete {
+    width: 5em;
+    height: 3em;
+
+    background-color: #AA3333;
+    border-radius: 1em;
+}
+.delete:hover {
+    cursor: pointer;
+    background-color: #FF0000;
 }
 
 

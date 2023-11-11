@@ -51,6 +51,9 @@ def add_content():
 
     new_content = {
         "id": len(who_entries) + 1,
+        #This creates a bug where the id is not unique if a message is deleted
+        #If you remove by place instead of ID, or if ID can be given from 
+        #an ever-increasing constant this bug is fixed!!!!!!!!
         "title": title,
         "text": text,
         "isActive": is_active
@@ -64,7 +67,6 @@ def add_content():
     return redirect(url_for("cms.cms_about"))
 
 
-#@cms_bp.route("/cms/about/delete", methods=["DELETE"])
 #@cms_bp.route("/cms/about/edit", methods=["POST"])
 
 
@@ -79,3 +81,22 @@ def cms_contact():
     """
 
     return render_template("cms_contact.html", messages=messages, length=len(messages))
+
+
+@cms_bp.route("/cms/contact/msg_delete", methods=["POST"])
+def delete_message():
+    """Delete content from the CMS messages page.
+
+    Returns:
+        The rendered CMS about page without the deleted message.
+    """
+
+    print(request.form)
+    msg_id = int(request.form["id"])
+
+    for message in messages:
+        if message["id"] == msg_id:
+            messages.remove(message)
+            break
+
+    return redirect(url_for("cms.cms_contact"))

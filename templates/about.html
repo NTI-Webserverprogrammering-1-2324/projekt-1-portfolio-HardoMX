@@ -30,20 +30,20 @@
             <form action="{{ url_for('about.contact') }}" method="post">
                 <div class="form-name form">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Your name..">
+                    <input class="input" type="text" id="name" name="name" placeholder="Your name.." required>
                 </div>
 
                 <div class="form-mail form">
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email" placeholder="Your email..">
+                    <input class="input" type="email" id="email" name="email" placeholder="Your email.." required>
                 </div>
 
                 <div class="form-message form">
                     <label for="message">Subject</label>
-                    <textarea id="message" name="message" placeholder="Write your message.."></textarea>
+                    <textarea class="input" id="message" name="message" placeholder="Write your message.." required></textarea>
                 </div>
 
-                <input type="submit" value="Send">
+                <input class="input" type="submit" value="Send">
             </form>
         </div>
     </div>

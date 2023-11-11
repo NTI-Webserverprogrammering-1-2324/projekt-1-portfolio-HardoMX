@@ -20,12 +20,12 @@
                     {{ entry.title }}
                     <span>
                         <button class="edit" data-id="{{ entry.id }}">Edit</button>
-                        <button class="delete">Delete</button>
                         {% if entry.isActive %}
-                        <span class="active">Active</span>
+                        <button class="deactivate">Deactivate</button>
                         {% else %}
-                        <button class="set-active">Set Active</button>
+                        <button class="activate">Activate</button>
                         {% endif %}
+                        <button class="delete">Delete</button>
                     </span>
                 </li>
                 {% endfor %}
@@ -44,7 +44,7 @@
                         <button class="edit" data-id="{{ entry.id }}">Edit</button>
                         <button class="delete">Delete</button>
                         {% if entry.isActive %}
-                        <span class="active">Active</span>
+                        <button class="deactivate">Deactivate</button>
                         {% else %}
                         <button class="set-active">Set Active</button>
                         {% endif %}
@@ -97,6 +97,7 @@
                 <div>
                     <label for="what-do">Add to "What do I do?" instead of "Who am I?"</label>
                     <input class="what-do" type="checkbox" name="what-do">
+                    <!-- Change this to radio instead of checkbox -->
                 </div>
 
                 <!-- Submit -->

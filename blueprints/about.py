@@ -7,7 +7,6 @@ about_bp = Blueprint('about', __name__)
 
 
 
-
 @about_bp.route("/about", methods=["GET"])
 def about():
     """ Return about page """
@@ -29,7 +28,10 @@ def contact():
     message = request.form["message"]
 
     new_message = {
-        "id": len(messages) + 1,
+        "id": len(messages) + 1, 
+        #This creates a bug where the id is not unique if a message is deleted
+        #If you remove by place instead of ID, or if ID can be given from 
+        #an ever-increasing constant this bug is fixed!!!!!!!!
         "name": name,
         "email": email,
         "message": message
