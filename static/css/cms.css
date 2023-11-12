@@ -145,6 +145,16 @@ main {
     list-style-type: none;
 }
 
+.entry {
+    padding: 0.5em;
+    margin-bottom: 1em;
+
+    background-color: var(--Accent-1);
+    color: var(--Accent-2);
+
+    border: solid 0.2em var(--Accent-2);
+    border-radius: 1em;
+}
 .entry-control {
     display: flex;
 }
@@ -169,7 +179,7 @@ main {
 
     width: fit-content;
     height: fit-content;
-    padding: 1em 1em 1em 1em;
+    padding: 1em;
 
     background-color: #0000008F;
     color: var(--Accent-2);
@@ -221,7 +231,7 @@ main {
 
     width: fit-content;
     height: fit-content;
-    padding: 1em 1em 1em 1em;
+    padding: 1em;
 
     background-color: #0000008F;
     color: var(--Accent-2);
@@ -235,7 +245,7 @@ main {
 }
 
 .close {
-    padding: 0.5em 0.5em 0.5em 0.5em;
+    padding: 0.5em;
 
     height: 2em;
     width: 2em;
@@ -301,7 +311,7 @@ main {
     border: 0.2em solid var(--Accent-2);
     border-radius: 1em;
 
-    padding: 1em 1em 1em 1em;
+    padding: 1em;
     margin-bottom: 2em;
 }
 .name {

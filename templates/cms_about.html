@@ -16,7 +16,7 @@
             <h3>Who am I?</h3>
             <ul>
                 {% for entry in who_entries %}
-                <li class="who-entry">
+                <li class="who-entry entry">
                     {{ entry.title }}
                     <div class="entry-control">
                         <button class="edit" onclick="modal('who{{ (entry.id)|string() }}')">Edit</button>
@@ -76,7 +76,7 @@
             <h3>What do I do?</h3>
             <ul>
                 {% for entry in what_entries %}
-                <li class="what-entry">
+                <li class="what-entry entry">
                     {{ entry.title }}
                     <div class="entry-control">
                         <button class="edit" onclick="modal('what{{ (entry.id)|string() }}')">Edit</button>
