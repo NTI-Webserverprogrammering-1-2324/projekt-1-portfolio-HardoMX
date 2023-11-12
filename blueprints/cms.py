@@ -34,6 +34,9 @@ def cms_about():
     return render_template("cms_about.html", who_entries=who_entries, what_entries=what_entries)
 
 
+WHAT_ID = 1
+WHO_ID = 1
+
 @cms_bp.route("/cms/about/create", methods=["POST"])
 def add_content():
     """Add content to the CMS about page.
@@ -49,32 +52,31 @@ def add_content():
 
     which_list = request.form["which_list"]
 
+    global WHAT_ID
+    global WHO_ID
+
 
     if which_list == "What":
         new_content = {
-        "id": len(what_entries) + 1,
-        #This creates a bug where the id is not unique if a message is deleted.
-        #This affects both deleting and editing.
-        #If you remove by place instead of ID, or if ID can be given from
-        #an ever-increasing constant this bug is fixed!!!!!!!!
+        "id": WHAT_ID,
         "title": title,
         "text": text,
         "isActive": is_active
         }
+
+        WHAT_ID += 1
 
         what_entries.append(new_content)
 
     else:
         new_content = {
-        "id": len(who_entries) + 1,
-        #This creates a bug where the id is not unique if a message is deleted.
-        #This affects both deleting and editing.
-        #If you remove by place instead of ID, or if ID can be given from
-        #an ever-increasing constant this bug is fixed!!!!!!!!
+        "id": WHO_ID,
         "title": title,
         "text": text,
         "isActive": is_active
         }
+
+        WHO_ID += 1
 
         who_entries.append(new_content)
 
@@ -111,9 +113,10 @@ def toggle_active():
 def edit_content():
     """Edit the title and text of a content entry.
 
-    This function retrieves the ID, list name, title, and text of a content entry from the request form,
-    and updates the corresponding entry in either the "who" or "what" list of entries. The updated entry
-    is identified by its ID. Finally, the function redirects to the "cms_about" endpoint.
+    This function retrieves the ID, list name, title, and text of a content entry from
+    the request form, and updates the corresponding entry in either the "who" or "what"
+    list of entries. The updated entry is identified by its ID.
+    Finally, the function redirects to the "cms_about" endpoint.
 
     Returns:
         A redirect response to the "cms_about" endpoint.

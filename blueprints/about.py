@@ -14,6 +14,8 @@ def about():
                             who_entries=who_entries, what_entries=what_entries)
 
 
+MESSAGE_ID = 1
+
 @about_bp.route("/about/contact", methods=["POST"])
 def contact():
     """Render the contact page.
@@ -27,15 +29,16 @@ def contact():
     email = request.form["email"]
     message = request.form["message"]
 
+    global MESSAGE_ID
+
     new_message = {
-        "id": len(messages) + 1, 
-        #This creates a bug where the id is not unique if a message is deleted
-        #If you remove by place instead of ID, or if ID can be given from
-        #an ever-increasing constant this bug is fixed!!!!!!!!
+        "id": MESSAGE_ID,
         "name": name,
         "email": email,
         "message": message
     }
+
+    MESSAGE_ID += 1
 
     messages.append(new_message)
 
