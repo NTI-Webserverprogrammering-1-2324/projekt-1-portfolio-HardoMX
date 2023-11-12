@@ -30,7 +30,7 @@ def contact():
     new_message = {
         "id": len(messages) + 1, 
         #This creates a bug where the id is not unique if a message is deleted
-        #If you remove by place instead of ID, or if ID can be given from 
+        #If you remove by place instead of ID, or if ID can be given from
         #an ever-increasing constant this bug is fixed!!!!!!!!
         "name": name,
         "email": email,

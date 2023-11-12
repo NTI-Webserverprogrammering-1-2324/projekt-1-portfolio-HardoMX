@@ -18,16 +18,54 @@
                 {% for entry in who_entries %}
                 <li class="who-entry">
                     {{ entry.title }}
-                    <span>
-                        <button class="edit" data-id="{{ entry.id }}">Edit</button>
-                        {% if entry.isActive %}
-                        <button class="deactivate">Deactivate</button>
-                        {% else %}
-                        <button class="activate">Activate</button>
-                        {% endif %}
-                        <button class="delete">Delete</button>
-                    </span>
+                    <div class="entry-control">
+                        <button class="edit" onclick="modal('who{{ (entry.id)|string() }}')">Edit</button>
+                        <form action="{{ url_for('cms.toggle_active') }}" method="post">
+                            <input type="hidden" name="id" value="{{ entry.id }}">
+                            <input type="hidden" name="list" value="who">
+                            <input class="active" type="submit" value="{% if entry.isActive %}Deactivate{% else %}Activate{% endif %}">
+                        </form>
+                        <form action="{{ url_for('cms.delete_content') }}" method="post">
+                            <input type="hidden" name="id" value="{{ entry.id }}">
+                            <input type="hidden" name="list" value="who">
+                            <input class="delete" type="submit" value="Delete">
+                        </form>
+                    </div>
                 </li>
+                
+                                        <!-- To create a completely unique CSS ID, both the list and ID is used.
+                                            Otherwise the wrong modal could open when two entries share the same title or ID. -->
+                <div class="edit-modal" id="who{{ (entry.id)|string() }}">
+                    <div class="modal-content">
+                        <h1>Edit {{ entry.title }}</h1>
+                        <div class="close" onclick="closeModal('who{{ (entry.id)|string() }}')">
+                                <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490" xml:space="preserve">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 "></polygon>
+                                    </g>
+                                </svg>
+                        </div>
+                    </div>
+                    <form class="forms" action="{{ url_for('cms.edit_content') }}" method="post">
+                        <input type="hidden" name="id" value="{{ entry.id }}">
+                        <input type="hidden" name="list" value="who">
+
+                        <!-- Title Input -->
+                        <div class="form-title">
+                            <label for="title" class="form-label">Title (like your name)</label>
+                            <input type="text" class="form-control" name="title" placeholder="Enter Title" value="{{ entry.title }}" required>
+                        </div>
+
+                        <!-- Text Input -->
+                        <div class="form-text">
+                            <label class="form-label" for="text">Text</label>
+                            <textarea class="form-control" name="text" placeholder="Write something about yourself" required rows="6">{{ entry.text }}</textarea>
+                        </div>
+                        <input type="submit" value="Save">
+                    </form>
+                </div>
                 {% endfor %}
             </ul>
         </div>
@@ -40,29 +78,65 @@
                 {% for entry in what_entries %}
                 <li class="what-entry">
                     {{ entry.title }}
-                    <span>
-                        <button class="edit" data-id="{{ entry.id }}">Edit</button>
-                        <button class="delete">Delete</button>
-                        {% if entry.isActive %}
-                        <button class="deactivate">Deactivate</button>
-                        {% else %}
-                        <button class="set-active">Set Active</button>
-                        {% endif %}
-                    </span>
+                    <div class="entry-control">
+                        <button class="edit" onclick="modal('what{{ (entry.id)|string() }}')">Edit</button>
+                        <form action="{{ url_for('cms.toggle_active') }}" method="post">
+                            <input type="hidden" name="id" value="{{ entry.id }}">
+                            <input type="hidden" name="list" value="what">
+                            <input class="active" type="submit" value="{% if entry.isActive %}Deactivate{% else %}Activate{% endif %}">
+                        </form>
+                        <form action="{{ url_for('cms.delete_content') }}" method="post">
+                            <input type="hidden" name="id" value="{{ entry.id }}">
+                            <input type="hidden" name="list" value="what">
+                            <input class="delete" type="submit" value="Delete">
+                        </form>
+                    </div>
                 </li>
+
+                <div class="edit-modal" id="what{{ (entry.id)|string() }}">
+                    <div class="modal-content">
+                        <h1>Edit {{ entry.title }}</h1>
+                        <div class="close" onclick="closeModal('what{{ (entry.id)|string() }}')">
+                                <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490" xml:space="preserve">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 "></polygon>
+                                    </g>
+                                </svg>
+                        </div>
+                    </div>
+                    <form class="forms" action="{{ url_for('cms.edit_content') }}" method="post">
+                        <input type="hidden" name="id" value="{{ entry.id }}">
+                        <input type="hidden" name="list" value="what">
+
+                        <!-- Title Input -->
+                        <div class="form-title">
+                            <label for="title" class="form-label">Title (like your name)</label>
+                            <input type="text" class="form-control" name="title" placeholder="Enter Title" value="{{ entry.title }}" required>
+                        </div>
+
+                        <!-- Text Input -->
+                        <div class="form-text">
+                            <label class="form-label" for="text">Text</label>
+                            <textarea class="form-control" name="text" placeholder="Write something about yourself" required rows="6">{{ entry.text }}</textarea>
+                        </div>
+                        <input type="submit" value="Save">
+                    </form>
+                </div>
                 {% endfor %}
             </ul>
         </div>
     </div>
 
     <!-- Add New Content -->
-    <button class="add-button" onclick="modal()">
+    <button class="add-button" onclick="modal('add-modal')">
         Add New Content
     </button>
     <div class="add-entry" id="add-modal">
         <div class="modal-content">
             <h1>Add New Content</h1>
-            <div class="close" onclick="closeModal()">
+            <div class="close" onclick="closeModal('add-modal')">
                     <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490" xml:space="preserve">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -78,13 +152,13 @@
                 <!-- Title Input -->
                 <div class="form-title">
                     <label for="title" class="form-label">Title (like your name)</label>
-                    <input type="text" class="form-control" name="title" placeholder="Enter Title">
+                    <input type="text" class="form-control" name="title" placeholder="Enter Title" value="" required>
                 </div>
 
                 <!-- Text Input -->
                 <div class="form-text">
                     <label class="form-label" for="text">Text</label>
-                    <textarea class="form-control" name="text" placeholder="Write something about yourself"></textarea>
+                    <textarea class="form-control" name="text" placeholder="Write something about yourself" required rows="6"></textarea>
                 </div>
 
                 <!-- Is Active -->
@@ -94,10 +168,15 @@
                 </div>
 
                 <!-- Choose list -->
-                <div>
-                    <label for="what-do">Add to "What do I do?" instead of "Who am I?"</label>
-                    <input class="what-do" type="checkbox" name="what-do">
-                    <!-- Change this to radio instead of checkbox -->
+                <div class="which-list">
+                    <div>
+                        <label for="Who">Add to "Who am I?"</label>
+                        <input class="which-list-radio" type="radio" name="which_list" value="Who" checked>
+                    </div>
+                    <div>
+                        <label for="What">Add to "What do I do?"</label>
+                        <input class="which-list-radio" type="radio" name="which_list" value="What">
+                    </div>
                 </div>
 
                 <!-- Submit -->

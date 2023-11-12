@@ -73,10 +73,10 @@ function popup() {
 
 
 // Add modal function to CMS
-function modal() {
-    document.getElementById('add-modal').style.display = "block";
+function modal(id) {
+    document.getElementById(id).style.display = "block";
 }
 
-function closeModal() {
-    document.getElementById('add-modal').style.display = "none";
+function closeModal(id) {
+    document.getElementById(id).style.display = "none";
 }

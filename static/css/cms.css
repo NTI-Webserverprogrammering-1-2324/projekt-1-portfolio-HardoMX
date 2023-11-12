@@ -145,6 +145,9 @@ main {
     list-style-type: none;
 }
 
+.entry-control {
+    display: flex;
+}
 .edit {
     width: 5em;
     height: 3em;
@@ -156,26 +159,32 @@ main {
     cursor: pointer;
     background-color: var(--Accent-1);
 }
+.edit-modal {
+    display: none;
+    position: fixed;
+    overflow: auto;
 
-.activate {
+    z-index: 1;
+    transform: translateY(-75%);
+
+    width: fit-content;
+    height: fit-content;
+    padding: 1em 1em 1em 1em;
+
+    background-color: #0000008F;
+    color: var(--Accent-2);
+    border: solid 0.2em var(--Accent-2);
+    border-radius: 2em;
+}
+
+.active {
     width: 5em;
     height: 3em;
 
     background-color: var(--Accent-2);
     border-radius: 1em;
 }
-.activate:hover {
-    cursor: pointer;
-    background-color: var(--Accent-1);
-}
-.deactivate {
-    width: 7em;
-    height: 3em;
-
-    background-color: var(--Accent-2);
-    border-radius: 1em;
-}
-.deactivate:hover {
+.active:hover {
     cursor: pointer;
     background-color: var(--Accent-1);
 }
@@ -209,13 +218,12 @@ main {
     z-index: 1;
     left: 50;
     top: 50;
-    transform: translate(-50%, -50%);
 
     width: fit-content;
     height: fit-content;
     padding: 1em 1em 1em 1em;
 
-    background-color: #0000005F;
+    background-color: #0000008F;
     color: var(--Accent-2);
     border: solid 0.2em var(--Accent-2);
     border-radius: 2em;
@@ -229,8 +237,8 @@ main {
 .close {
     padding: 0.5em 0.5em 0.5em 0.5em;
 
-    height: 3em;
-    width: 3em;
+    height: 2em;
+    width: 2em;
 
     background-color: #FF0000;
     border-radius: 20%
@@ -239,6 +247,21 @@ main {
     cursor: pointer;
 }
 
+.forms {
+    font-size: 1.5em;
+
+    input[type=submit] {
+        width: 5em;
+        height: 3em;
+
+        background-color: var(--Accent-2);
+        border-radius: 1em;
+    }
+    input[type=submit]:hover {
+        cursor: pointer;
+        background-color: var(--Accent-1);
+    }
+}
 .form-title {
     display: flex;
     flex-direction: column;
@@ -246,6 +269,14 @@ main {
 .form-text {
     display: flex;
     flex-direction: column;
+}
+.which-list {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.is-active, .which-list-radio {
+    width: 1.5em;
+    height: 1.5em;
 }
 
 
