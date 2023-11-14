@@ -13,7 +13,8 @@ def about():
     return render_template("about.html", title="About",
                             who_entries=who_entries, what_entries=what_entries)
 
-
+#To avoid two messages  sharing the same ID if one is deleted,
+#we use a global variable that is always increased by 1 when a new message is added.
 MESSAGE_ID = 1
 
 @about_bp.route("/about/contact", methods=["POST"])

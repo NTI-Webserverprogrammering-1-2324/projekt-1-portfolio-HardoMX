@@ -34,6 +34,8 @@ def cms_about():
     return render_template("cms_about.html", who_entries=who_entries, what_entries=what_entries)
 
 
+#To avoid two entries sharing the same ID if one is deleted,
+#we use a global variable that is always increased by 1 when a new entry is added.
 WHAT_ID = 1
 WHO_ID = 1
 
