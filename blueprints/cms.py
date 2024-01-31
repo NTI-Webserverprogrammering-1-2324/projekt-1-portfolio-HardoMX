@@ -202,3 +202,33 @@ def delete_message():
             break
 
     return redirect(url_for("cms.cms_contact"))
+
+
+# ================== Login ==================
+
+@cms_bp.route("/cms/login", methods=["GET"])
+def login():
+    """Render the CMS login page.
+
+    Returns:
+        The rendered CMS login page.
+    """
+
+    return render_template("login.html")
+
+@cms_bp.route("/cms/login/form", methods=["POST"])
+def login_form():
+    """Get login credentials from user and redirect to CMS page.
+
+    Returns:
+        The rendered CMS page or login page.
+    """
+
+    print(request.form)
+    username = request.form["username"]
+    password = request.form["password"]
+
+    if username == "admin" and password == "admin":
+        return redirect(url_for("cms.cms"))
+    else:
+        return redirect(url_for("cms.login"))

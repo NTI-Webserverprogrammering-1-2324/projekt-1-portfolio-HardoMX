@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+
+        <link rel="icon" href="{{ url_for('static', filename='images/sitewide/Octocat.png') }}" type="image/png">
+        <title>{{ title }}</title>
+    </head>
+
+
+    <body>
+        <header>
+            <img src="{{ url_for('static', filename='images/sitewide/Octocat.png') }}" alt="Site logo">
+            <h1 class="site-title">Login to CMS</h1>
+        </header>
+
+        <main>
+            <div>
+                <h1>Log in to CMS</h1>
+                <form action="{{ url_for('cms.login_form')}}">
+                    <input type="text" name="username" placeholder="Username" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="submit" value="Log in">
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            
+        </footer>
+    </body>
+
+
+    <script src="script.js"></script>
+</html>
