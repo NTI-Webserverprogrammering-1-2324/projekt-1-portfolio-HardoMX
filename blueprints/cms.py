@@ -1,6 +1,7 @@
 """ This script renders a simple Content Management System """
 
 from flask import Blueprint, render_template, request, redirect, url_for
+from flask_login import login_required
 from blueprints.data.lists import what_entries, who_entries, messages
 
 
@@ -10,6 +11,7 @@ cms_bp = Blueprint("cms", __name__)
 
 
 @cms_bp.route("/cms", methods=["GET"])
+@login_required
 def cms():
     """
     Renders the CMS (Content Management System) page.
