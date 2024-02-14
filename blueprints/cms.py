@@ -166,12 +166,12 @@ def delete_content():
     list_name = request.form["list"]
 
     if list_name == "who":
-        for content in who_entries:
+        for content in who_entries.copy():
             if content["id"] == content_id:
                 who_entries.remove(content)
                 break
     else:
-        for content in what_entries:
+        for content in what_entries.copy():
             if content["id"] == content_id:
                 what_entries.remove(content)
                 break
@@ -205,7 +205,7 @@ def delete_message():
     print(request.form)
     msg_id = int(request.form["id"])
 
-    for message in messages:
+    for message in messages.copy():
         if message["id"] == msg_id:
             messages.remove(message)
             break
