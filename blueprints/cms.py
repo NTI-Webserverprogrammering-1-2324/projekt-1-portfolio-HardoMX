@@ -27,6 +27,7 @@ def cms():
 # ================== CMS ==================
 
 @cms_bp.route("/cms/about", methods=["GET"])
+@login_required
 def cms_about():
     """Render the CMS about page.
 
@@ -42,6 +43,7 @@ WHAT_ID = 1
 WHO_ID = 1
 
 @cms_bp.route("/cms/about/create", methods=["POST"])
+@login_required
 def add_content():
     """Add content to the CMS about page.
 
@@ -88,6 +90,7 @@ def add_content():
 
 
 @cms_bp.route("/cms/about/active", methods=["POST"])
+@login_required
 def toggle_active():
     """Toggle the active state of a content item on the CMS about page.
 
@@ -114,6 +117,7 @@ def toggle_active():
 
 
 @cms_bp.route("/cms/about/edit", methods=["POST"])
+@login_required
 def edit_content():
     """Edit the title and text of a content entry.
 
@@ -149,6 +153,7 @@ def edit_content():
 
 
 @cms_bp.route("/cms/about/delete", methods=["POST"])
+@login_required
 def delete_content():
     """Delete content from the CMS about page.
 
@@ -177,6 +182,7 @@ def delete_content():
 # ================== Contact ==================
 
 @cms_bp.route("/cms/contact", methods=["GET"])
+@login_required
 def cms_contact():
     """Render the CMS contact page.
 
@@ -188,6 +194,7 @@ def cms_contact():
 
 
 @cms_bp.route("/cms/contact/msg_delete", methods=["POST"])
+@login_required
 def delete_message():
     """Delete content from the CMS messages page.
 
